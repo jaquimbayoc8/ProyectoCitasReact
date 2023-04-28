@@ -6,7 +6,7 @@ const Formulario = () => {
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        
+
         console.log('Enviando Formulario.....');
     }
 
