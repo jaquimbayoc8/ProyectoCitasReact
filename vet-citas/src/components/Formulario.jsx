@@ -1,4 +1,8 @@
+import { useState, useEffect } from "react"
+
 const Formulario = () => {
+    const [nombre, setNombre] = useState('');
+    const [propietario, setPropietario] = useState('');
     return (
         <>
             <div className="md:w-1/2 lg:w-2/5">
@@ -15,7 +19,10 @@ const Formulario = () => {
                             <label htmlFor="mascota" className="block text-gray-600 uppercase font-bold">
                                 Nombre Mascota:
                             </label>
-                            <input id="mascota" type="text" placeholder="Nombre de la mascota" className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
+                            <input id="mascota" type="text" placeholder="Nombre de la mascota" className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                            onChange={(e)=>(setNombre(e.target.value))}
+                            value={nombre}
+                            />
                         </div>
                         <div className="mb-5">
                             <label htmlFor="propietario" className="block text-gray-600 uppercase font-bold">
