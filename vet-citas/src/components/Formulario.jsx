@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
+import Error from "./Error";
 
-const Formulario = () => {
+const Formulario = ({pacientes, setPacientes}) => {
     const [nombre, setNombre] = useState('');
     const [propietario, setPropietario] = useState('');
     const [email, setEmail] = useState('');
@@ -17,6 +18,23 @@ const Formulario = () => {
             return;
         }
         setError(false);
+
+        //objeto paciente
+        const objetoPaciente={
+            nombre, 
+            propietario, 
+            email, 
+            fecha, 
+            sintomas
+        }
+
+        setPacientes([...pacientes, objetoPaciente]);
+
+        setNombre('');
+        setPropietario('');
+        setEmail('');
+        setFecha('');
+        setSintomas('');
     }
 
     return (
@@ -34,9 +52,7 @@ const Formulario = () => {
                 >
                     
                     {error && 
-                        <div className="bg-red-800 text-center text-white rounded-md uppercase font-bold mb-3 p-3">
-                        <p>Hay campos Vacíos</p>
-                        </div>
+                        <Error mensaje='Hay campos Vacíos' />
                     }
                     <div>
                         <div className="mb-5">
